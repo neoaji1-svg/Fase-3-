@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A1E4B2C-6F3D-4E5A-9B7C-1D2E3F4A5B6C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ReservasUTP</RootNamespace>
+    <AssemblyName>ReservasUTP</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\AppConfig.cs" />
+    <Compile Include="Controllers\CtrlAuth.cs" />
+    <Compile Include="Controllers\CtrlConsultarEspacio.cs" />
+    <Compile Include="Controllers\CtrlConsultarHorario.cs" />
+    <Compile Include="Controllers\CtrlCrearReserva.cs" />
+    <Compile Include="Controllers\Resultados.cs" />
+    <Compile Include="Models\DatosDemostracion.cs" />
+    <Compile Include="Models\Db.cs" />
+    <Compile Include="Models\Espacio.cs" />
+    <Compile Include="Models\Reserva.cs" />
+    <Compile Include="Models\ServicioCorreo.cs" />
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Estilos.cs" />
+    <Compile Include="Views\FrmCatalogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmConfirmacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmDisponibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmMisReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Content Include="Database\schema_sqlserver.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
